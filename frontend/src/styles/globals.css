@@ -1,0 +1,16 @@
+/* ================= GLOBAL ================= */
+body {
+  margin: 0;
+  background-color: #471b53;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+body.dark {
+  background-color: #2a0f38;
+}
+
+/* Dancing Script font for spans */
+.content span {
+  font-family: 'Dancing Script', cursive !important;
+}

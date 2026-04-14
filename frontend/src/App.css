@@ -1,0 +1,128 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= HEADER ================= */
+header {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #FFD6FF;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #FFD6FF;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active{
+  padding: 12px 24px;
+  background-color: #e2c8f0;
+  color: #784B84;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ================= LAMP / DARK MODE ================= */
+.lamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Trapezoid shade */
+.shade {
+  width: 60px;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 60px solid #6a5acd;
+  transition: 0.4s ease;
+}
+
+/* Glow when ON */
+.shade.on {
+  border-bottom-color: #b19cff;
+  filter: drop-shadow(0 0 12px #b19cff)
+          drop-shadow(0 0 30px #7a5cff);
+}
+
+/* Circle bulb */
+.bulb {
+  width: 25px;
+  height: 25px;
+  background: #d8c8ff;
+  border-radius: 50%;
+  margin-top: -7px;
+}

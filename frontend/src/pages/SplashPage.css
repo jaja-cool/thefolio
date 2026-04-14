@@ -1,0 +1,186 @@
+.splash-page {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #f6ecff, #d6c2ff, #9f7aea);
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Butterfly container bobs and fades */
+.butterfly {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  animation: fly 2s ease-in-out infinite, fade 0.5s ease-in-out infinite alternate;
+}
+
+/* Body */
+.body {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 90px;
+  background: linear-gradient(180deg, #6b21a8, #4b0082);
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+}
+
+/* Wing common style */
+.wing {
+  position: absolute;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
+}
+
+/* Upper wings */
+.left-upper, .right-upper {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #f9f1ff, #a855f7);
+}
+
+/* Lower wings */
+.left-lower, .right-lower {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #d9c0ff, #9333ea);
+}
+
+/* Wing shapes */
+.left-upper {
+  left: 50%;
+  top: 18%;
+  transform-origin: 90% 50%;
+  transform: rotate(20deg);
+  clip-path: polygon(50% 0%, 5% 20%, 0% 50%, 5% 80%, 50% 100%, 80% 80%, 70% 50%, 80% 20%);
+  animation: flap-left-upper 1s ease-in-out infinite;
+}
+
+.right-upper {
+  right: 50%;
+  top: 18%;
+  transform-origin: 10% 50%;
+  transform: rotate(-20deg);
+  clip-path: polygon(50% 0%, 95% 20%, 100% 50%, 95% 80%, 50% 100%, 20% 80%, 30% 50%, 20% 20%);
+  animation: flap-right-upper 1s ease-in-out infinite;
+}
+
+.left-lower {
+  left: 50%;
+  top: 22%;
+  transform-origin: 90% 50%;
+  transform: rotate(10deg);
+  clip-path: polygon(50% 0%, 10% 30%, 0% 50%, 10% 70%, 50% 100%, 70% 70%, 60% 50%, 70% 30%);
+  animation: flap-left-lower 1s ease-in-out infinite;
+}
+
+.right-lower {
+  right: 50%;
+  top: 22%;
+  transform-origin: 10% 50%;
+  transform: rotate(-10deg);
+  clip-path: polygon(50% 0%, 90% 30%, 100% 50%, 90% 70%, 50% 100%, 30% 70%, 40% 50%, 30% 30%);
+  animation: flap-right-lower 1s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fly {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes flap-left-upper {
+  0% { transform: rotate(20deg); }
+  50% { transform: rotate(-30deg); }
+  100% { transform: rotate(20deg); }
+}
+@keyframes flap-left-lower {
+  0% { transform: rotate(10deg); }
+  50% { transform: rotate(-20deg); }
+  100% { transform: rotate(10deg); }
+}
+@keyframes flap-right-upper {
+  0% { transform: rotate(-20deg); }
+  50% { transform: rotate(30deg); }
+  100% { transform: rotate(-20deg); }
+}
+@keyframes flap-right-lower {
+  0% { transform: rotate(-10deg); }
+  50% { transform: rotate(20deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+/* Loading text */
+.loading, .loading-text {
+  margin-top: 40px;
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #ec4899, #a855f7);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: gradient-shift 3s ease infinite, fade-in 1s ease-out;
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+  letter-spacing: 2px;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animated dots */
+.dot {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 700;
+  -webkit-text-fill-color: #ec4899;
+  animation: blink 1.5s infinite, pulse 2s ease-in-out infinite;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.3s; }
+.dot:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes blink {
+  0%, 20% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
