@@ -92,8 +92,9 @@ router.post('/:id/like', protect, async (req, res) => {
 router.post('/', protect, memberOrAdmin, upload.single('image'), validatePost, async (req, res) => {
   try {
     const { title = '', body = '' } = req.body;
-    const image = req.file ? req.file.filename : '';
+    const image = req.file ? `https://res.cloudinary.com/dgci0u1um/image/upload/${req.file.path}` : '';
     const post = await Post.create({ title, body, image, author: req.user._id, status: 'published' });
+
     await post.populate('author', 'name profilePic');
     res.status(201).json(post);
   } catch (err) {
