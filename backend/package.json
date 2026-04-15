@@ -4,10 +4,13 @@
   "description": "Backend for React Blog app",
   "main": "server.js",
   "scripts": {
+    "build:frontend": "cd ../frontend && npm ci && npm run build && cd ../backend && xcopy ..\\frontend\\build\\* public\\ /E /I /Y",
+    "build": "npm run build:frontend",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node seedAdmin.js"
   },
+
   "dependencies": {
     "express": "^4.19.2",
     "mongoose": "^8.5.1",

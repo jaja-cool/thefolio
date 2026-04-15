@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5b648576.css",
+    "main.js": "/static/js/main.ba7a8dfd.js",
+    "static/media/mama(1)(1).png": "/static/media/mama(1)(1).6239043b7b4d7a07664c.png",
+    "static/media/me.png": "/static/media/me.d0816a5058771ff665bf.png",
+    "static/media/jaja.jpg": "/static/media/jaja.d961b74eec12d919d301.jpg",
+    "static/media/7.jpg": "/static/media/7.fe77d963cddfbb0beea1.jpg",
+    "static/media/5.jpg": "/static/media/5.9743b1efa5c1cca6fa81.jpg",
+    "static/media/4.jpg": "/static/media/4.6763df95acfde095ee43.jpg",
+    "static/media/3.jpg": "/static/media/3.a5530f8f736154b14c5d.jpg",
+    "static/media/8.jpg": "/static/media/8.d64682bddcbb370ca12a.jpg",
+    "static/media/6.jpg": "/static/media/6.df06b12625400a0f2975.jpg",
+    "static/media/1.jpg": "/static/media/1.995f1aed9a1c001f632c.jpg",
+    "static/media/2.jpg": "/static/media/2.3fad43ea32e344a46459.jpg",
+    "index.html": "/index.html",
+    "main.5b648576.css.map": "/static/css/main.5b648576.css.map",
+    "main.ba7a8dfd.js.map": "/static/js/main.ba7a8dfd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b648576.css",
+    "static/js/main.ba7a8dfd.js"
+  ]
+}
