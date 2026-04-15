@@ -1,40 +1,38 @@
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs/promises');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// Create uploads/ folder if it does not exist yet (async)
-(async () => {
-  try {
-    await fs.mkdir('uploads', { recursive: true });
-  } catch (err) {
-    // Ignore if exists
-  }
-})();
-
-// Where and how to save uploaded files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads/'),
-  filename: (req, file, cb) => {
-    // Create a unique filename: timestamp + random number + original extension
-    const unique = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    cb(null, unique + path.extname(file.originalname));
-    // Example result: 1719123456789-342156789.jpg
-  },
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'dgci0u1um',
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// Only allow image file types
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'thefolio-blog',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
+    transformation: [
+      { width: 800, height: 600, crop: 'limit' },
+      { quality: 'auto' }
+    ]
+  }
+});
+
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|gif|webp/;
-  const ext = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-  const mime = allowedTypes.test(file.mimetype);
-  if (ext && mime) return cb(null, true);
-  cb(new Error('Only image files are allowed (jpg, png, gif, webp)'));
+  if (allowedTypes.test(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error('Only image files allowed (jpg, png, gif, webp)'));
+  }
 };
 
 const upload = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 5 * 1024 * 1024 }, // max 5 MB per file
+  limits: { fileSize: 5 * 1024 * 1024 } // 5MB
 });
 
 module.exports = upload;
