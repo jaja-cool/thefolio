@@ -108,8 +108,9 @@ router.put('/:id', protect, memberOrAdmin, postOwnerOrAdmin, upload.single('imag
     const wasEdited = post.editedAt !== undefined;
     if (req.body.title !== undefined) post.title = req.body.title || '';
     if (req.body.body !== undefined) post.body = req.body.body || '';
-    if (req.file) post.image = req.file.filename;
+    if (req.file) post.image = `https://res.cloudinary.com/dgci0u1um/image/upload/${req.file.path}`;
     else if (req.body.image === '') post.image = '';
+
     
     // Mark as edited if changed
     if (!wasEdited || req.body.title !== undefined || req.body.body !== undefined || req.file) {
