@@ -16,7 +16,7 @@ connectDB(); // Connect to MongoDB
 
 // ── Middleware ─────────────────────────────────────────────────
 // Allow React (port 3000) to call this server
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3003'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://thefolio.vercel.app'], credentials: true }));
 // Parse incoming JSON request bodies
 app.use(express.json());
 // Serve static frontend files at root
@@ -37,5 +37,5 @@ app.use('/api/contact', contactRoutes);
 // ── Start Server ──────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
