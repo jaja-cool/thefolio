@@ -1,5 +1,5 @@
 // backend/server.js
-require('dotenv').config({path: __dirname + '/.env'}); // Load .env variables FIRST
+require('dotenv').config(); // Load .env variables (local dev/backend/.env)
 const express = require('express');
 const cors = require('cors');
 const path = require('path');

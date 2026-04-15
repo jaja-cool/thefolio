@@ -1,0 +1,1 @@
+- [x] 3. Create backend/.env.example with correct template ✅\n- [x] 2. Update TODO-RENDER-DEPLOY.md: Fix MONGO_URI example (&amp; → &), add decode instructions
