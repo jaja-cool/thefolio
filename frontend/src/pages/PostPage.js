@@ -285,7 +285,8 @@ className="back-btn"
 
             {post.image && (
               <div className="post-hero-image">
-                <img src={`http://localhost:5000/uploads/${post.image}`} alt={post.title} />
+                <img src={`/uploads/${post.image}`} alt={post.title} />
+
               </div>
             )}
 
@@ -321,8 +322,9 @@ className="back-btn"
                   {(post.likeCount || post.likes?.length || 0) > 0 && post.likes && post.likes.slice(0, 10).map((likeUser, index) => (
                     <span key={index} className="liker-badge">
                       <img
-                        src={likeUser.profilePic ? `http://localhost:5000/uploads/${likeUser.profilePic}` : '/default-avatar.png'}
+                        src={likeUser.profilePic ? `/uploads/${likeUser.profilePic}` : '/default-avatar.png'}
                         alt={likeUser.name}
+
                         style={{
                           width: '28px',
                           height: '28px',
@@ -421,11 +423,12 @@ className="back-btn"
                 <div className="comment-avatar">
                   {comment.author?.profilePic ? (
                     <img
-                      src={`http://localhost:5000/uploads/${comment.author.profilePic}`}
+                      src={`/uploads/${comment.author.profilePic}`}
                       alt={comment.author.name}
                       className="comment-avatar-img"
                       style={{ width: '24px', height: '24px', objectFit: 'cover', borderRadius: '50%' }}
                     />
+
                   ) : (
                     <div className="avatar-placeholder" style={{ width: '24px', height: '24px', lineHeight: '24px', fontSize: '12px' }}>
                       {comment.author?.name?.[0]?.toUpperCase() || '?'}

@@ -70,11 +70,12 @@ className={`post-card ${liked ? 'liked' : ''} ${isDark ? 'dark' : ''} ${isLatest
     >
       {post.image && (
         <div className="post-image-wrapper" onClick={(e) => e.stopPropagation()}>
-          <img 
-            src={`http://localhost:5000/uploads/${post.image}`}
-            alt={post.title}
-            loading="lazy"
-          />
+            <img 
+              src={`/uploads/${post.image}`}
+              alt={post.title}
+              loading="lazy"
+            />
+
         </div>
       )}
       <div className="post-content">
