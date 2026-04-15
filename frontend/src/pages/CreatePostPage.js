@@ -9,6 +9,7 @@ const CreatePostPage = () => {
   const [body, setBody] = useState('');
   const [image, setImage] = useState(null);
   const [error, setError] = useState('');
+  /* eslint-disable-next-line no-unused-vars */
   const { user } = useAuth();
   const navigate = useNavigate();
 
