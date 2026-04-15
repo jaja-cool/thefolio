@@ -12,7 +12,7 @@
 - [ ] 4. Local test (run above command, test localhost:5000)
 
 - [ ] 5. Commit & push to trigger Render deploy
-- [ ] 6. Seed data & final test
+- [x] 6. Seed data & final test (run: cd backend && npm run seed && node seedPosts.js) ✅
 
 **Next step: Build frontend now.**
 
