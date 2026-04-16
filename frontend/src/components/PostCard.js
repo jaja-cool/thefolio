@@ -78,6 +78,7 @@ className={`post-card ${liked ? 'liked' : ''} ${isDark ? 'dark' : ''} ${isLatest
               alt={post.title}
               loading="lazy"
               onError={(e) => { 
+                console.error('Image load error:', e.target.src);
                 e.target.src = '/default-avatar.png'; 
                 e.target.style.objectFit = 'cover';
               }}
