@@ -3,9 +3,11 @@ export const getImageUrl = (imagePath) => {
   
   if (imagePath.startsWith('http')) return imagePath;
   
-  // Local uploads or Cloudinary public_id → prepend server URL
-  const baseUrl = window.location.hostname === 'localhost' ? '' : 'https://thefolio-5poz.onrender.com';
+  // Skip prepending for Cloudinary URLs, only for local uploads
+  if (imagePath.includes('cloudinary.com')) return imagePath;
   
+  const baseUrl = window.location.hostname === 'localhost' ? '' : 'https://thefolio-5poz.onrender.com';
   return `${baseUrl}/uploads/${imagePath}`;
+
 };
 
