@@ -287,7 +287,10 @@ className="back-btn"
 
             {post.image && (
               <div className="post-hero-image">
-                <img src={post.image.startsWith('http') ? post.image : `/uploads/${post.image}`} alt={post.title} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src={getImageUrl(post.image)} alt={post.title} onError={(e) => { 
+                  e.target.src = '/default-avatar.png'; 
+                  e.target.style.objectFit = 'cover';
+                }} />
 
 
               </div>
@@ -325,7 +328,7 @@ className="back-btn"
                   {(post.likeCount || post.likes?.length || 0) > 0 && post.likes && post.likes.slice(0, 10).map((likeUser, index) => (
                     <span key={index} className="liker-badge">
                       <img
-                        src={likeUser.profilePic ? (likeUser.profilePic.startsWith('http') ? likeUser.profilePic : `/uploads/${likeUser.profilePic}`) : '/default-avatar.png'}
+                        src={getImageUrl(likeUser.profilePic)}
                         alt={likeUser.name}
 
 
@@ -427,11 +430,11 @@ className="back-btn"
                 <div className="comment-avatar">
                   {comment.author?.profilePic ? (
                     <img
-                      src={comment.author.profilePic ? (comment.author.profilePic.startsWith('http') ? comment.author.profilePic : `/uploads/${comment.author.profilePic}`) : '/default-avatar.png'}
-                      alt={comment.author.name}
+                      src={getImageUrl(comment.author?.profilePic)}
+                      alt={comment.author?.name}
                       className="comment-avatar-img"
                       style={{ width: '24px', height: '24px', objectFit: 'cover', borderRadius: '50%' }}
-                      onError={(e) => { e.target.style.display = 'none'; }}
+                      onError={(e) => { e.target.src = '/default-avatar.png'; }}
                     />
 
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
+import { getImageUrl } from '../lib/imageUrl';
 import '../pages/auth.css';
 
 const ProfilePage = () => {
@@ -57,9 +58,7 @@ const ProfilePage = () => {
     } catch (err) { setMsg(err.response?.data?.message || 'Error'); }
   };
 
-  const picSrc = user?.profilePic
-    ? `http://localhost:5000/uploads/${user.profilePic}`
-    : '/default-avatar.png';
+  const picSrc = getImageUrl(user?.profilePic);
 
 return (
     <div className='auth-wrapper'>

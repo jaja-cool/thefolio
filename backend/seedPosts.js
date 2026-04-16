@@ -18,26 +18,26 @@ connectDB().then(async () => {
   await Post.deleteMany({ status: 'published' });
   console.log('Existing published posts deleted.');
 
-  // Create 5 sample posts
+  // Create 3 sample posts with valid Cloudinary images
   const samplePosts = [
     {
       title: 'Welcome to TheFolio',
       body: 'This is a sample published post. Test liking functionality here. Like with different accounts to verify counts persist.',
-      image: 'sample1.jpg',
+      image: 'https://res.cloudinary.com/dgci0u1um/image/upload/backend/public/static/media/jaja.d961b74eec12d919d301.jpg',
       author: admin._id,
       status: 'published'
     },
     {
       title: 'My First Blog Post',
       body: 'Getting started with React and Node.js fullstack development...',
-      image: 'sample2.jpg',
+      image: 'https://res.cloudinary.com/dgci0u1um/image/upload/backend/public/static/media/1.995f1aed9a1c001f632c.jpg',
       author: admin._id,
       status: 'published'
     },
     {
       title: 'Learning MongoDB',
       body: 'Experiences with Mongoose schemas, virtuals, population... likes array testing!',
-      image: 'sample3.jpg',
+      image: 'https://res.cloudinary.com/dgci0u1um/image/upload/backend/public/static/media/2.3fad43ea32e344a46459.jpg',
       author: admin._id,
       status: 'published'
     }

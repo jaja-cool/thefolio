@@ -77,7 +77,10 @@ className={`post-card ${liked ? 'liked' : ''} ${isDark ? 'dark' : ''} ${isLatest
 
               alt={post.title}
               loading="lazy"
-              onError={(e) => { e.target.style.display = 'none'; }}
+              onError={(e) => { 
+                e.target.src = '/default-avatar.png'; 
+                e.target.style.objectFit = 'cover';
+              }}
             />
 
 
