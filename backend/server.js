@@ -34,7 +34,10 @@ app.use('/api/comments', commentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/contact', contactRoutes);
 
-// Remove SPA fallback - API only (frontend on Vercel/Netlify)
+// SPA fallback - serve React frontend for all non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 
 // ── Start Server ──────────────────────────────────────────────
