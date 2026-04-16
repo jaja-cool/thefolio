@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDarkMode } from '../context/DarkModeContext';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
+import { getImageUrl } from '../lib/imageUrl';
 import './PostCard.css';
 import '../pages/menu-buttons.css';
+
 
 const PostCard = ({ post, refreshPosts, isLatest }) => {
   const navigate = useNavigate();
@@ -71,7 +73,8 @@ className={`post-card ${liked ? 'liked' : ''} ${isDark ? 'dark' : ''} ${isLatest
       {post.image && (
         <div className="post-image-wrapper" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={post.image.startsWith('http') ? post.image : `/uploads/${post.image}`}
+              src={getImageUrl(post.image)}
+
               alt={post.title}
               loading="lazy"
               onError={(e) => { e.target.style.display = 'none'; }}

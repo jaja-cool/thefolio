@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
+import { getImageUrl } from '../lib/imageUrl';
 import { useDarkMode } from '../context/DarkModeContext';
 import './post-page.css';
 import './menu-buttons.css';
+
 
 const formatRelativeTime = (dateString) => {
   const date = new Date(dateString);
