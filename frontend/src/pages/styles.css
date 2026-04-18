@@ -1666,3 +1666,99 @@ body.dark .start-game-btn:hover {
     justify-content: center;
   }
 }
+
+/* AboutPage Pinterest Mobile Responsive */
+@media (max-width: 768px) {
+  .about-wrapper {
+    padding: 20px !important;
+    margin: 20px auto !important;
+  }
+
+  .content1 {
+    height: auto !important;
+    min-height: 400px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+    padding: 1rem !important;
+  }
+
+  .rectangle,
+  .rectangle1 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    height: 280px !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  #toggle1:checked + .rectangle,
+  #toggle2:checked + .rectangle1 {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 600px !important;
+    max-height: 85vh !important;
+    padding: 1.5rem !important;
+    border-radius: 1.5rem !important;
+    z-index: 100 !important;
+  }
+
+  #toggle1:checked ~ .rectangle1,
+  #toggle2:checked ~ .rectangle {
+    display: none !important;
+  }
+
+  .rectangle .before,
+  .rectangle1 .before1 {
+    font-size: 1.5rem !important;
+  }
+
+  .rectangle .after img,
+  .rectangle1 .after1 img {
+    max-width: 250px !important;
+    height: auto !important;
+  }
+
+  .rectangle .after p,
+  .rectangle1 .after1 p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .game-button-container {
+    padding: 2rem 1rem !important;
+  }
+
+  .start-game-btn {
+    padding: 1rem 2rem !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .content1 {
+    padding: 0.5rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .rectangle,
+  .rectangle1 {
+    height: 240px !important;
+    padding: 1rem !important;
+  }
+
+  #toggle1:checked + .rectangle,
+  #toggle2:checked + .rectangle1 {
+    padding: 1rem !important;
+    margin: 1rem !important;
+  }
+}
+
