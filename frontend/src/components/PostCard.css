@@ -417,3 +417,97 @@
   min-height: 240px;
   padding: 20px 18px;
 }
+
+/* Mobile Pinterest Responsive Design */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .posts-grid .post-card {
+    margin-bottom: 1rem;
+    padding: 1.25rem !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08) !important;
+    grid-row: span 1 !important;
+    min-height: unset !important;
+  }
+
+  .post-image-wrapper img {
+    height: 280px !important;
+    aspect-ratio: 1 !important;
+    object-position: center !important;
+  }
+
+  .post-header-row {
+    gap: 0.5rem;
+  }
+
+  .post-title {
+    font-size: 1.3rem !important;
+    line-height: 1.3;
+  }
+
+  .post-actions {
+    gap: 0.75rem;
+  }
+
+  .action-btn {
+    padding: 0.75rem 1.25rem !important;
+    font-size: 1rem !important;
+    min-height: 44px !important;
+    border-width: 2px !important;
+    border-radius: 2rem !important;
+  }
+
+  .post-menu-dots {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1.25rem !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+  }
+
+  .post-menu-dropdown {
+    min-width: 170px !important;
+    right: 0.5rem !important;
+  }
+
+  .menu-item {
+    padding: 1rem 1.25rem !important;
+    font-size: 1rem !important;
+  }
+
+  .post-excerpt {
+    font-size: 0.95rem !important;
+  }
+
+  .likers-list {
+    max-width: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .posts-grid .post-card {
+    padding: 1rem !important;
+  }
+
+  .post-image-wrapper img {
+    height: 240px !important;
+  }
+
+  .action-btn {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .posts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+}

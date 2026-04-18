@@ -373,7 +373,7 @@ const HomePage = () => {
           margin-bottom: 20px;
           text-align: center;
         }
-        .posts-grid {
+.posts-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
           gap: 20px;
@@ -382,6 +382,43 @@ const HomePage = () => {
           padding: 0 20px;
           align-items: start;
           grid-auto-flow: dense;
+        }
+
+        /* Enhanced Mobile for Homepage */
+        @media (max-width: 768px) {
+          .home-page {
+            padding: 40px 16px !important;
+          }
+
+          .posts-grid {
+            gap: 16px !important;
+            padding: 0 8px !important;
+            margin: 24px auto 0 !important;
+          }
+
+          .section, .home-page {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          .cards {
+            gap: 20px !important;
+          }
+
+          main {
+            padding: 40px 16px !important;
+            gap: 24px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .home-page {
+            padding: 32px 12px !important;
+          }
+
+          .section {
+            padding: 32px 12px !important;
+          }
         }
         .home-page.dark {
           background-color: #3a2f45;
